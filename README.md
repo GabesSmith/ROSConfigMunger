@@ -61,10 +61,12 @@ add bridge=bridge interface=ether5 internal-path-cost=10 path-cost=10
 
 ## How to use
 
-This program is written and tested on Python 3.11 and it depends on having Python installed where you are going to use it.
+This program is written and tested with Python 3.11 and it depends on having Python installed where you are going to use it.
 
 ```
 Usage: python ConfigMunger.py [-h] [--rules RULES] input_file
 E.g. python ConfigMunger.py' 'GDCCR2004_1' '--rules' 'rules.json'
 ```
+
+I personally use this tool in conjunction with https://github.com/ytti/oxidized which integrates my router config into a private github repo which then runs a github action on push which then automatically converts my main router config into backup configs to run on my other routers if/when needed.
 
