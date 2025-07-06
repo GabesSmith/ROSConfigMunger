@@ -1,0 +1,116 @@
+{
+  "CRS305": {
+    "comment_sections": ["/system leds", "/port"],
+    "comment_lines": {
+      "/interface ethernet": {
+        "prefixes": [
+          "set [ find default-name=ether2",
+          "set [ find default-name=ether3",
+          "set [ find default-name=ether4",
+          "set [ find default-name=ether5"
+        ],
+        "mode": "set"
+      },
+      "/interface bridge port": {
+        "prefixes": ["add bridge=bridge interface=ether2"],
+        "mode": "section"
+      },
+      "/interface list member": {
+        "prefixes": ["add interface=ether2"],
+        "mode": "section"
+      },
+      "/ip service": {
+        "prefixes": ["set winbox address="],
+        "mode": "set"
+      },
+      "/system resource irq rps": {
+        "prefixes": ["set ether2"],
+        "mode": "section"
+      }
+    },
+    "replacements": {},
+    "insertions": {}
+  },
+  "L41G": {
+    "comment_sections": ["/system leds", "/port"],
+    "comment_lines": {
+      "/interface ethernet": {
+        "prefixes": ["set [ find default-name=sfp-sfpplus"],
+        "mode": "section"
+      },
+      "/interface bridge port": {
+        "prefixes": [
+          "add bridge=bridge interface=sfp-sfpplus2",
+          "add bridge=bridge interface=ether6",
+          "add bridge=bridge interface=ether7",
+          "add bridge=bridge interface=ether8"
+        ],
+        "mode": "add"
+      },
+      "/interface list member": {
+        "prefixes": ["add interface=ether1 list=WAN"],
+        "mode": "add"
+      },
+      "/ip service": {
+        "prefixes": ["set winbox address="],
+        "mode": "set"
+      }
+    },
+    "replacements": {
+      "sfp-sfpplus1_WAN": "ether1",
+      "sfp-sfpplus2_LAN": "ether2",
+      "set [ find default-name=ether2 ] l2mtu=1598 mac-address=48:8F:5A:83:80:79": "set [ find default-name=ether2 ] l2mtu=1598 mac-address=18:FD:74:82:74:68"
+    },
+    "insertions": {
+      "/interface ethernet": "/interface wireless disable wlan1\n/interface lte disable lte1\n"
+    }
+  },
+  "RB751G": {
+    "comment_sections": [
+      "/ip smb users",
+      "/ip smb shares",
+      "/zerotier interface",
+      "/zerotier",
+      "/system leds",
+      "/port",
+      "/system logging action",
+      "/system resource irq rps"
+    ],
+    "comment_lines": {
+      "/interface ethernet": {
+        "prefixes": ["set [ find default-name=sfp-sfpplus"],
+        "mode": "section"
+      },
+      "/interface bridge port": {
+        "prefixes": [
+          "add bridge=bridge interface=sfp-sfpplus2",
+          "add bridge=bridge interface=ether6",
+          "add bridge=bridge interface=ether7",
+          "add bridge=bridge interface=ether8"
+        ],
+        "mode": "add"
+      },
+      "/interface list member": {
+        "prefixes": ["add interface=ether1 list=WAN"],
+        "mode": "add"
+      },
+      "/ip firewall filter": {
+        "prefixes": ["comment=\"ZeroTier"],
+        "mode": "add",
+        "match": "in"
+      },
+      "/ip service": {
+        "prefixes": ["set winbox address="],
+        "mode": "set"
+      }
+    },
+    "replacements": {
+      "sfp-sfpplus1_WAN": "ether1",
+      "sfp-sfpplus2_LAN": "ether2",
+      "set [ find default-name=ether2 ] l2mtu=1598 mac-address=48:8F:5A:83:80:79": "set [ find default-name=ether2 ] l2mtu=1598 mac-address=18:FD:74:82:74:68"
+    },
+    "insertions": {
+      "/interface ethernet": "/interface wireless disable wlan1\n"
+    }
+  }
+}

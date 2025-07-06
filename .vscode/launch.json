@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            // Add this "args" section
+            "args": [
+                "GDCCR2004_1", // This is the value for "input_file"
+                "--rules",     // This is the optional flag
+                "rules.json"   // This is the value for the rules file
+            ]
+        }
+    ]
+}
