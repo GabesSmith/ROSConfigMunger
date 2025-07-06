@@ -1,13 +1,70 @@
 ## Router OS Config File Munger
-I created this project so I have a tool that can convert Mikrotik RouterOS config files from a router so they it can be used with another different model of router. As an example I once manually converted the config file of my main router a CCR2004 to work with a CRS305. This conversion process involved commenting out certain sections of the config and testing it out on the alternate (backup) router to see if it works.
+I created this project so I have a tool that can convert Mikrotik RouterOS config files from a router so they it can be used with another different model of router. My initial interest was so I could run my home router config an a backup router just in case. As an example I once manually converted the config file of my main router a CCR2004 to work with a CRS305. This conversion process involved commenting out certain sections of the config and testing it out on the alternate (backup) router to see if it works.
 
 The File Munger uses a set of rules which you need to define which will:
 
-find config file sections or commands and comment them out
-insert new commands
-
+1. Find config file sections or commands and comment them out
+2. Insert new command(s) after a section
+3. Find and Replace text in the file
 
 ## Example
 
+For example this section of config
+
+```
+...
+/interface bridge port
+add bridge=GuestBridge interface=vlanGuest internal-path-cost=10 path-cost=10
+add bridge=bridge interface=sfp-sfpplus2_LAN internal-path-cost=10 path-cost=10
+add bridge=bridge interface=ether2 internal-path-cost=10 path-cost=10
+add bridge=bridge interface=ether3 internal-path-cost=10 path-cost=10
+add bridge=bridge interface=ether4 internal-path-cost=10 path-cost=10
+add bridge=bridge interface=ether5 internal-path-cost=10 path-cost=10
+add bridge=bridge interface=ether6 internal-path-cost=10 path-cost=10
+add bridge=bridge interface=ether7 internal-path-cost=10 path-cost=10
+add bridge=bridge interface=ether8 internal-path-cost=10 path-cost=10
+...
+```
+
+Will be transformed by these rules
+
+```
+...
+    "comment_lines": {
+      "/interface bridge port": {
+        "prefixes": [
+          "add bridge=bridge interface=sfp-sfpplus2",
+          "add bridge=bridge interface=ether6",
+          "add bridge=bridge interface=ether7",
+          "add bridge=bridge interface=ether8"
+        ],
+        "mode": "add"
+      }
+...
+```
+Which results with this
+
+```
+...
+/interface bridge port
+add bridge=GuestBridge interface=vlanGuest internal-path-cost=10 path-cost=10
+#add bridge=bridge interface=ether2 internal-path-cost=10 path-cost=10
+add bridge=bridge interface=ether2 internal-path-cost=10 path-cost=10
+add bridge=bridge interface=ether3 internal-path-cost=10 path-cost=10
+add bridge=bridge interface=ether4 internal-path-cost=10 path-cost=10
+add bridge=bridge interface=ether5 internal-path-cost=10 path-cost=10
+#add bridge=bridge interface=ether6 internal-path-cost=10 path-cost=10
+#add bridge=bridge interface=ether7 internal-path-cost=10 path-cost=10
+#add bridge=bridge interface=ether8 internal-path-cost=10 path-cost=10
+...
+```
+
 ## How to use
+
+This program is written and tested on Python 3.11 and it depends on having Python installed where you are going to use it.
+
+```
+Usage: python ConfigMunger.py [-h] [--rules RULES] input_file
+E.g. python ConfigMunger.py' 'GDCCR2004_1' '--rules' 'rules.json'
+```
 
