@@ -65,7 +65,7 @@ This program is written and tested with Python 3.11 and it depends on having Pyt
 
 ```
 Usage: python ConfigMunger.py [-h] [--rules RULES] input_file
-E.g. python ConfigMunger.py' 'GDCCR2004_1' '--rules' 'rules.json'
+E.g. python ConfigMunger.py 'example.rsc' '--rules' 'rules.json'
 ```
 
 You will need to modify the rules.json file to suit your particular outcome(s) you are wanting to achieve.
