@@ -1,5 +1,5 @@
 ## Router OS Config File Munger
-I created this project so I have a tool that can convert Mikrotik RouterOS config files from a router so they it can be used with another different model of router. My initial interest was so I could run my home router config an a backup router just in case. As an example I once manually converted the config file of my main router a CCR2004 to work with a CRS305. This conversion process involved commenting out certain sections of the config and testing it out on the alternate (backup) router to see if it works.
+I created this project so I have a tool that can convert Mikrotik RouterOS config files from a router so it can be used with a different model of router. My initial interest was so I could run my home router config an a different  backup router just in case if needed. As an example, I once manually converted the config file of my main router a CCR2004 to work with a CRS305. This conversion process involved commenting out certain sections of the config and testing it out on the alternate (backup) router to see if it works.
 
 The File Munger uses a set of rules which you need to define which will:
 
@@ -61,10 +61,14 @@ add bridge=bridge interface=ether5 internal-path-cost=10 path-cost=10
 
 ## How to use
 
-This program is written and tested on Python 3.11 and it depends on having Python installed where you are going to use it.
+This program is written and tested with Python 3.11 and it depends on having Python installed where you are going to use it.
 
 ```
 Usage: python ConfigMunger.py [-h] [--rules RULES] input_file
 E.g. python ConfigMunger.py' 'GDCCR2004_1' '--rules' 'rules.json'
 ```
+
+You will need to modify the rules.json file to suit your particular outcome(s) you are wanting to achieve.
+
+I personally use this tool in conjunction with https://github.com/ytti/oxidized which integrates my router config into a private github repo which then runs a github action on push which then automatically converts my main router config into backup configs to run on my other routers if/when needed.
 
