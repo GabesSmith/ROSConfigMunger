@@ -1,6 +1,6 @@
 {
   "CRS305": {
-    "comment_sections": ["/system leds", "/port"],
+    "comment_sections": ["/something to remove"],
     "comment_lines": {
       "/interface ethernet": {
         "prefixes": [
@@ -32,7 +32,7 @@
     "insertions": {}
   },
   "L41G": {
-    "comment_sections": ["/system leds", "/port"],
+    "comment_sections": ["/something to remove"],
     "comment_lines": {
       "/interface ethernet": {
         "prefixes": ["set [ find default-name=sfp-sfpplus"],
@@ -59,7 +59,7 @@
     "replacements": {
       "sfp-sfpplus1_WAN": "ether1",
       "sfp-sfpplus2_LAN": "ether2",
-      "set [ find default-name=ether2 ] l2mtu=1598 mac-address=48:8F:5A:83:80:79": "set [ find default-name=ether2 ] l2mtu=1598 mac-address=18:FD:74:82:74:68"
+      "set [ find default-name=ether2 ]": "set [ find default-name=ether2 ] l2mtu=1598 mac-address=ff:ff:ff:ff:ff:ff"
     },
     "insertions": {
       "/interface ethernet": "/interface wireless disable wlan1\n/interface lte disable lte1\n"
@@ -67,14 +67,7 @@
   },
   "RB751G": {
     "comment_sections": [
-      "/ip smb users",
-      "/ip smb shares",
-      "/zerotier interface",
-      "/zerotier",
-      "/system leds",
-      "/port",
-      "/system logging action",
-      "/system resource irq rps"
+      "/something to remove"
     ],
     "comment_lines": {
       "/interface ethernet": {
@@ -94,8 +87,8 @@
         "prefixes": ["add interface=ether1 list=WAN"],
         "mode": "add"
       },
-      "/ip firewall filter": {
-        "prefixes": ["comment=\"ZeroTier"],
+      "/something to change": {
+        "prefixes": ["this"],
         "mode": "add",
         "match": "in"
       },
@@ -107,7 +100,7 @@
     "replacements": {
       "sfp-sfpplus1_WAN": "ether1",
       "sfp-sfpplus2_LAN": "ether2",
-      "set [ find default-name=ether2 ] l2mtu=1598 mac-address=48:8F:5A:83:80:79": "set [ find default-name=ether2 ] l2mtu=1598 mac-address=18:FD:74:82:74:68"
+      "set [ find default-name=ether2 ]": "set [ find default-name=ether2 ] l2mtu=1598 mac-address=ff:ff:ff:ff:ff:ff"
     },
     "insertions": {
       "/interface ethernet": "/interface wireless disable wlan1\n"
