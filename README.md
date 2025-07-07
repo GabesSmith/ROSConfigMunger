@@ -72,3 +72,9 @@ You will need to modify the rules.json file to suit your particular outcome(s) y
 
 I personally use this tool in conjunction with https://github.com/ytti/oxidized which integrates my router config into a private github repo which then runs a github action on push which then automatically converts my main router config into backup configs to run on my other routers if/when needed.
 
+This video on exporting and importing RouterOS Config is also handy.
+<br>
+<br>
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=jBC7mScNUjw
+" target="_blank"><img src="http://img.youtube.com/vi/jBC7mScNUjw/0.jpg" 
+alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
