@@ -78,5 +78,3 @@ This video on exporting and importing RouterOS Config is also handy.
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=jBC7mScNUjw
 " target="_blank"><img src="http://img.youtube.com/vi/jBC7mScNUjw/0.jpg" 
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
-
-<meta name="google-site-verification" content="-Ieq477FkBlnoeO1EujjtusbDH8V_dJQgb3NcxmqYw4" />
