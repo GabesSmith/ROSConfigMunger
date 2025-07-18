@@ -1,3 +1,4 @@
+<meta name="google-site-verification" content="-Ieq477FkBlnoeO1EujjtusbDH8V_dJQgb3NcxmqYw4" />
 ## Router OS Config File Munger
 I created this project so I have a tool that can convert Mikrotik RouterOS config files from a router so it can be used with a different model of router. My initial interest was so I could run my home router config an a different  backup router just in case if needed. As an example, I once manually converted the config file of my main router a CCR2004 to work with a CRS305. This conversion process involved commenting out certain sections of the config and testing it out on the alternate (backup) router to see if it works.
 
