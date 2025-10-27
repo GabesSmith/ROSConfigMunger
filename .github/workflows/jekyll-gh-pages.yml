@@ -33,7 +33,6 @@ jobs:
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
-          theme: primer
           source: ./
           destination: ./_site
 
