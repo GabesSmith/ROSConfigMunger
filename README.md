@@ -48,7 +48,7 @@ Which results with this
 ...
 /interface bridge port
 add bridge=GuestBridge interface=vlanGuest internal-path-cost=10 path-cost=10
-#add bridge=bridge interface=ether2 internal-path-cost=10 path-cost=10
+#add bridge=bridge interface=sfp-sfpplus2_LAN internal-path-cost=10 path-cost=10
 add bridge=bridge interface=ether2 internal-path-cost=10 path-cost=10
 add bridge=bridge interface=ether3 internal-path-cost=10 path-cost=10
 add bridge=bridge interface=ether4 internal-path-cost=10 path-cost=10
